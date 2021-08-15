@@ -1,5 +1,7 @@
 # b23.wtf in NodeJS
 
+This project is inspired by [nicholascw/b23.wtf](https://github.com/nicholascw/b23.wtf) and rewritten using NodeJS.
+
 ## Usage
 
 ```
