@@ -1,0 +1,26 @@
+{
+  "name": "b23-wtf",
+  "version": "0.0.1",
+  "description": "Remove tracing parameters from b23.tv/*.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renbaoshuo/b23-wtf-js.git"
+  },
+  "keywords": [
+    "bilibili"
+  ],
+  "author": {
+    "name": "Ren Baoshuo",
+    "email": "i@baoshuo.ren",
+    "url": "https://baoshuo.ren"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/renbaoshuo/b23-wtf-js/issues"
+  },
+  "homepage": "https://github.com/renbaoshuo/b23-wtf-js#readme"
+}
