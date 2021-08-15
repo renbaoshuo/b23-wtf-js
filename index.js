@@ -11,9 +11,17 @@ const footer = '<hr><div align="center">Made by <a href="https://baoshuo.ren">Ba
  * @param {ServerResponse} response 
  * @param {String} track_url 
  */
-const success = (response, host, pathname) => {
-    response.writeHead(302, { 'Content-Type': 'text/html; charset=utf-8', 'Location': `https://${host}${pathname}` });
-    response.write(`<div>Success. Redirecting to <a href="https://${host}${pathname}">https://${host}${pathname}</a> ...</div>${footer}`);
+const success = (response, host, pathname, searchParams) => {
+    let params = [];
+    if (searchParams.get('p')) {
+        params.push(`p=${searchParams.get('p')}`);
+    }
+    if (searchParams.get('page')) {
+        params.push(`page=${searchParams.get('page')}`);
+    }
+    params = params.join('&');
+    response.writeHead(302, { 'Content-Type': 'text/html; charset=utf-8', 'Location': `https://${host}${pathname}${params ? '?' + params : ''}` });
+    response.write(`<div>Success. Redirecting to <a href="https://${host}${pathname}${params ? '?' + params : ''}">https://${host}${pathname}${params ? '?' + params : ''}</a> ...</div>${footer}`);
 }
 
 /**
@@ -33,8 +41,8 @@ const error = (response) => {
 const handleRequest = (request, response) => {
     const client = http.get({ host: 'b23.tv', path: request.url, port: 80 }, (res) => {
         if (res.headers.location) {
-            const { host, pathname } = new URL(res.headers.location);
-            success(response, host, pathname);
+            const { host, pathname, searchParams } = new URL(res.headers.location);
+            success(response, host, pathname, searchParams);
         } else {
             error(response);
         }
