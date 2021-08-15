@@ -42,7 +42,12 @@ const handleRequest = (request, response) => {
     const client = http.get({ host: 'b23.tv', path: request.url, port: 80 }, (res) => {
         if (res.headers.location) {
             const { host, pathname, searchParams } = new URL(res.headers.location);
-            success(response, host, pathname, searchParams);
+            if (searchParams.get('preUrl')) {
+                const { host: realHost, pathname: realPathname, searchParams: realSearchParams } = new URL(decodeURIComponent(searchParams.get('preUrl')));
+                success(response, realHost, realPathname, realSearchParams);
+            } else {
+                success(response, host, pathname, searchParams);
+            }
         } else {
             error(response);
         }
