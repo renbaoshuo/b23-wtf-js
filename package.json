@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/renbaoshuo/b23-wtf-js#readme",
   "dependencies": {
-    "axios": "^0.21.1",
     "http": "^0.0.1-security"
   }
 }
