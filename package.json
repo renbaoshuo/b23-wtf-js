@@ -23,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/renbaoshuo/b23-wtf-js/issues"
   },
-  "homepage": "https://github.com/renbaoshuo/b23-wtf-js#readme",
-  "dependencies": {
-    "http": "^0.0.1-security"
-  }
+  "homepage": "https://github.com/renbaoshuo/b23-wtf-js#readme"
 }
